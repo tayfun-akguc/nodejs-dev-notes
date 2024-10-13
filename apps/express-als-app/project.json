@@ -1,0 +1,26 @@
+{
+  "name": "express-als-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/express-als-app/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "express-als-app:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "express-als-app:build:development"
+        },
+        "production": {
+          "buildTarget": "express-als-app:build:production"
+        }
+      }
+    }
+  }
+}
