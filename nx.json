@@ -34,7 +34,21 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/test-app-e2e/**/*"]
+      "exclude": [
+        "apps/test-app-e2e/**/*",
+        "express-als-app-e2e/**/*",
+        "apps-e2e/**/*",
+        "apps-e2e/**/*",
+        "apps/express-als-app-e2e/**/*"
+      ]
+    },
+    {
+      "plugin": "@nx/webpack/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview"
+      }
     }
   ]
 }
