@@ -5,6 +5,7 @@
 
 import express from 'express';
 import * as path from 'path';
+import { logger } from './logger';
 
 const app = express();
 
@@ -16,6 +17,12 @@ app.get('/api', (req, res) => {
 
 const port = process.env.PORT || 3333;
 const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}/api`);
+  logger.info(`Listening at http://localhost:${port}/api`);
+  logger.warn(`Listening at http://localhost:${port}/api`);
+  logger.error(`Listening at http://localhost:${port}/api`);
+  logger.info({ data: { x: '0', y: 0 } }, 'An info log');
 });
-server.on('error', console.error);
+
+server.on('error', (error) => {
+  logger.error({ error }, 'On server error!');
+});
