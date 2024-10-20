@@ -21,6 +21,13 @@ const server = app.listen(port, () => {
   logger.warn(`Listening at http://localhost:${port}/api`);
   logger.error(`Listening at http://localhost:${port}/api`);
   logger.info({ data: { x: '0', y: 0 } }, 'An info log');
+  logger.info(
+    {
+      item: 'Orange Soda',
+      price: 100.0,
+    },
+    'Log message with structured logging. ->'
+  );
 });
 
 server.on('error', (error) => {
